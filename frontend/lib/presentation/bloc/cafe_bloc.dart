@@ -52,7 +52,6 @@ class CafeBloc extends Bloc<CafeEvent, CafeState> {
   // ---------------------------------------------------------------------------
 
   Future<void> _onStarted(CafeStarted event, Emitter<CafeState> emit) {
-    // Stays subscribed for as long as the bloc lives; every pushed event updates the state.
     return emit.forEach<LiveEvent>(watchLiveEvents(), onData: _onLiveEvent);
   }
 
